@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>阿星的天气预报小站</title>
 </head>
+
 <body>
-<h3>天气预报</h3>
-<p>{{wea.weather}}</p>
-<p>{{wea.wind}}</p>
-<p>{{wea.wet}}</p>
+    <h3>天气预报</h3>
+    <p>{{wea.weather}}</p>
+    <p>{{wea.wind}}</p>
+    <p>{{wea.wet}}</p>
+    <p>{{wea.ip}}</p>
 </body>
+
+<script>
+    window.addEventListener('load', function(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success,error)
+        } else {
+            alert('浏览器不支持地理位置获取！');
+        }
+    });
+    function success(position) {
+        alert(position.coords.latitude,position.coords.longitude);
+    }
+    function error() {
+        alert('地理位置加载错误！');
+    }
+</script>
+
 </html>
