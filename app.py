@@ -1,8 +1,10 @@
 from flask import Flask,render_template,request
 import requests
+import view
 
 app = Flask(__name__)
 
+# 主页入口
 @app.route('/')
 def home(): 
     key='6c5dc70b8be20a22302470f4576304b4'
@@ -18,8 +20,9 @@ def home():
         'wet': 15,
         'ip': ip
     }
-
     return render_template('index.html',wea=wea)
+
+
 
 if __name__ == '__main__':
     app.debug=True
